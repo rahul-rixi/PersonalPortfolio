@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Center the dots perfectly */
+/* Center the dots perfectly */
+.slick-dots {
+    bottom: -20px; /* Adjust vertical alignment */
+    display: flex !important; /* Ensure flexbox alignment */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Customize dot container */
+  .slick-dots li {
+    margin: 0 8px; /* Add space between dots */
+  }
+  
+  /* Default dot appearance */
+  .slick-dots li div {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; /* Make it circular by default */
+    background-color: #6c757d; /* Neutral color for inactive dots */
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth scaling and shape transition */
+    transform: scale(1);
+    transform-origin: center; /* Center scaling */
+  }
+  
+  /* Active dot appearance */
+  .slick-dots li.slick-active div {
+    width: 20px; /* Increased width for a cylindrical shape */
+    height: 10px; /* Maintain height to create the cylinder effect */
+    border-radius: 20px; /* High border-radius for a pill/cylinder shape */
+    background-color: #FA9114; /* Highlight color */
+    transform: scale(1.2); /* Slightly scale up for emphasis */
+    transform-origin: center; /* Center scaling animation */
+  }
+  
