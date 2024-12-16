@@ -30,7 +30,7 @@ const About = () => {
         </p>
         <div className="w-20 h-1 mt-8 mx-auto bg-cyan-500 rounded-full"></div>
       </div>
-    </section>
+    </section>   
   );
 };
 
