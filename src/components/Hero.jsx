@@ -77,7 +77,7 @@ const HeroCenteredLayout = () => {
           transition={{ delay: 1.5, duration: 0.8, ease: "easeInOut" }}
         >
           <a
-            href="https://www.linkedin.com/in/yourprofile"
+            href="https://www.linkedin.com/in/rahulkumar-chouhan/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#FF0000] hover:text-white transition duration-300 text-2xl"
@@ -85,7 +85,7 @@ const HeroCenteredLayout = () => {
             <FaLinkedin />
           </a>
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/rahul-rixi"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#FF0000] hover:text-white transition duration-300 text-2xl"
@@ -94,7 +94,7 @@ const HeroCenteredLayout = () => {
           </a>
          
           <a
-            href="https://instagram.com/yourhandle"
+            href="https://www.instagram.com/rahulchouhan.js/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#FF0000] hover:text-white transition duration-300 text-2xl"
