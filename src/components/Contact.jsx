@@ -104,13 +104,6 @@ const ContactMe = () => {
               <p>Nawada, Bihar</p>
             </div>
           </div>
-          <div className="flex space-x-4 mt-6">
-            <a href="#" className="text-blue-500 hover:text-blue-300"><FaLinkedin /></a>
-            <a href="#" className="text-blue-500 hover:text-blue-300"><FaYoutube /></a>
-            <a href="#" className="text-blue-500 hover:text-blue-300"><FaFacebookF /></a>
-            <a href="#" className="text-blue-500 hover:text-blue-300"><FaInstagram /></a>
-            <a href="#" className="text-blue-500 hover:text-blue-300"><FaTwitter /></a>
-          </div>
         </div>
         {/* Right Side */}
         <div className="w-full md:w-1/2 p-8 mt-8 md:mt-16">

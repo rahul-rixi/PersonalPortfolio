@@ -3,10 +3,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; // Core carousel styles
 import "slick-carousel/slick/slick-theme.css"; // Default theme styles
 
-import project1 from "../assets/project1.png";
-import project2 from "../assets/project2.png";
-import project3 from "../assets/project3.png";
-import projectSample from "../assets/project1.png";
+import project1 from "../assets/hostelproject.png";
+import project2 from "../assets/hosteldashboard.png";
+import project3 from "../assets/mern.png";
+import projectSample from "../assets/hostelproject.png";
 
 const Projects = () => {
   // Carousel settings
@@ -44,24 +44,20 @@ const Projects = () => {
   const projectData = [
     {
       img: project1,
-      title: "Sample Coffee Shop Site",
-      link: "#",
+      title: "College Hostel Site",
+      link: "https://hostelmain.netlify.app/",
     },
     {
       img: project2,
-      title: "Sample School Site",
-      link: "#",
+      title: "Hostel-Dashboard",
+      link: "https://github.com/rahul-rixi/Hostel-Dashboard-main",
     },
     {
       img: project3,
-      title: "Sample Focus on Today Site",
-      link: "#",
+      title: "Ecommerce website",
+      link: "https://github.com/rahul-rixi/mern-ecommerce-2024-master",
     },
-    {
-      img: projectSample,
-      title: "Sample Project",
-      link: "#",
-    },
+  
   ];
 
   return (
