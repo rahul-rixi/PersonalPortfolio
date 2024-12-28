@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Typed from "typed.js";
-import { FaLinkedin, FaGithub, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 import RahulImage from "../assets/rahul.jpeg";
 
 const HeroCenteredLayout = () => {
@@ -27,8 +27,8 @@ const HeroCenteredLayout = () => {
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-[#000101] text-white">
-      <div className="text-center">
+    <section className="min-h-screen flex items-center justify-center bg-[#000101] text-white p-4">
+      <div className="text-center max-w-4xl mx-auto">
         {/* Profile Image with Glow Effect */}
         <motion.div
           className="relative mb-8 inline-block"
@@ -54,14 +54,15 @@ const HeroCenteredLayout = () => {
           Rahul Kumar
         </motion.h1>
         <motion.div
-          ref={typedRef}
-          className="block text-xl text-[#FF0000] font-medium my-4"
+          className="block text-xl text-[#FF0000] font-medium my-4 inline-flex"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.8, ease: "easeInOut" }}
-        ></motion.div>
+        >
+          <span ref={typedRef}></span>
+        </motion.div>
         <motion.p
-          className="text-lightGray text-lg mt-4 mb-8"
+          className="text-gray-400 text-lg mt-4 mb-8"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
@@ -92,7 +93,6 @@ const HeroCenteredLayout = () => {
           >
             <FaGithub />
           </a>
-         
           <a
             href="https://www.instagram.com/rahulchouhan.js/"
             target="_blank"

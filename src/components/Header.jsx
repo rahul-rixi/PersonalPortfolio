@@ -25,7 +25,7 @@ const Navbar = () => {
       setScrolling(window.scrollY > 100); // Change scrolling state based on scroll position
 
       // Dynamically set the active link based on section in view
-      const sections = ["home", "about", "skills", "projects", "contact"];
+      const sections = ["home", "about", "skills", "projects", "future-goals", "contact"];
       let newActiveLink = "home"; // Default to "home" when at the top of the page
 
       for (const section of sections) {
@@ -54,6 +54,7 @@ const Navbar = () => {
     about: "text-cyan-500",
     skills: "text-purple-600",
     projects: "text-[#FA9114]",
+    "future-goals": "text-green-500",
     contact: "text-[#109FE7]",
   };
 
@@ -63,6 +64,7 @@ const Navbar = () => {
     about: "bg-cyan-500",
     skills: "bg-purple-600",
     projects: "bg-[#FA9114]",
+    "future-goals": "bg-green-500",
     contact: "bg-[#109FE7]",
   };
 
@@ -111,17 +113,17 @@ const Navbar = () => {
 
         {/* Desktop Navbar Links */}
         <div className="hidden md:flex space-x-8 font-medium">
-          {["Home", "About", "Skills", "Projects", "Contact"].map((link) => (
+          {["Home", "About", "Skills", "Projects", "Future Goals", "Contact"].map((link) => (
             <div key={link} className="relative group">
               <a
-                href={`#${link.toLowerCase()}`}
+                href={`#${link.toLowerCase().replace(' ', '-')}`}
                 onClick={(e) => {
-                  handleScroll(e, link.toLowerCase());
-                  setActiveLink(link.toLowerCase());
+                  handleScroll(e, link.toLowerCase().replace(' ', '-'));
+                  setActiveLink(link.toLowerCase().replace(' ', '-'));
                 }}
                 className={`block px-4 py-3 font-semibold transition-all duration-300 ${
-                  activeLink === link.toLowerCase()
-                    ? sectionColors[link.toLowerCase()]
+                  activeLink === link.toLowerCase().replace(' ', '-')
+                    ? sectionColors[link.toLowerCase().replace(' ', '-')]
                     : "text-gray-300"
                 }`}
               >
@@ -145,18 +147,18 @@ const Navbar = () => {
         }`}
       >
         <ul className="space-y-6 text-center text-2xl font-medium text-gray-300 pt-16">
-          {["Home", "About", "Skills", "Projects", "Contact"].map((link) => (
+          {["Home", "About", "Skills", "Projects", "Future Goals", "Contact"].map((link) => (
             <li key={link}>
               <a
-                href={`#${link.toLowerCase()}`}
+                href={`#${link.toLowerCase().replace(' ', '-')}`}
                 onClick={(e) => {
-                  handleScroll(e, link.toLowerCase());
-                  setActiveLink(link.toLowerCase());
+                  handleScroll(e, link.toLowerCase().replace(' ', '-'));
+                  setActiveLink(link.toLowerCase().replace(' ', '-'));
                   setIsMenuOpen(false); // Close the sidebar
                 }}
                 className={`block px-4 py-2 ${
-                  activeLink === link.toLowerCase()
-                    ? sectionColors[link.toLowerCase()]
+                  activeLink === link.toLowerCase().replace(' ', '-')
+                    ? sectionColors[link.toLowerCase().replace(' ', '-')]
                     : "text-gray-300"
                 }`}
               >

@@ -5,16 +5,16 @@ import { gsap } from "gsap";
 
 const Skills = () => {
   const skillsData = [
-    { name: "HTML", icon: <FaHtml5 className="text-red-500" />, color: "hover:text-red-500" },
-    { name: "CSS", icon: <FaCss3Alt className="text-gray-300" />, color: "hover:text-gray-300" },
-    { name: "JavaScript", icon: <FaJs className="text-yellow-400" />, color: "hover:text-yellow-400" },
-    { name: "React", icon: <FaReact className="text-gray-400" />, color: "hover:text-gray-400" },
-    { name: "Tailwind CSS", icon: <SiTailwindcss className="text-gray-500" />, color: "hover:text-gray-500" },
-    { name: "Node.js", icon: <FaNodeJs className="text-gray-300" />, color: "hover:text-gray-300" },
-    { name: "Express.js", icon: <SiExpress className="text-gray-600" />, color: "hover:text-gray-600" },
-    { name: "MongoDB", icon: <SiMongodb className="text-green-500" />, color: "hover:text-green-500" },
-    { name: "C++", icon: <SiCplusplus className="text-gray-600" />, color: "hover:text-gray-600" },
-    { name: "GSAP", icon: <FaCode className="text-red-400" />, color: "hover:text-red-400" },
+    { name: "HTML", icon: <FaHtml5 />, color: "text-red-500", hoverColor: "group-hover:text-red-500", animation: "group-hover:animate-bounce" },
+    { name: "CSS", icon: <FaCss3Alt />, color: "text-blue-500", hoverColor: "group-hover:text-blue-500", animation: "group-hover:animate-pulse" },
+    { name: "JavaScript", icon: <FaJs />, color: "text-yellow-400", hoverColor: "group-hover:text-yellow-400", animation: "group-hover:animate-flash" },
+    { name: "React", icon: <FaReact />, color: "text-blue-400", hoverColor: "group-hover:text-blue-400", animation: "group-hover:animate-spin-slow" },
+    { name: "Tailwind CSS", icon: <SiTailwindcss />, color: "text-teal-500", hoverColor: "group-hover:text-teal-500", animation: "group-hover:animate-bounce" },
+    { name: "Node.js", icon: <FaNodeJs />, color: "text-green-500", hoverColor: "group-hover:text-green-500", animation: "group-hover:animate-swing" },
+    { name: "Express.js", icon: <SiExpress />, color: "text-gray-500", hoverColor: "group-hover:text-gray-500", animation: "group-hover:animate-jello" },
+    { name: "MongoDB", icon: <SiMongodb />, color: "text-green-500", hoverColor: "group-hover:text-green-500", animation: "group-hover:animate-flip" },
+    { name: "C++", icon: <SiCplusplus />, color: "text-blue-600", hoverColor: "group-hover:text-blue-600", animation: "group-hover:animate-wobble" },
+    { name: "GSAP", icon: <FaCode />, color: "text-green-400", hoverColor: "group-hover:text-green-400", animation: "group-hover:animate-rubberBand" },
   ];
 
   const skillsRef = useRef([]);
@@ -72,11 +72,17 @@ const Skills = () => {
           {skillsData.map((skill, index) => (
             <div
               key={index}
-              className={`flex flex-col items-center bg-gray-900 rounded-lg shadow-md p-4 transition-transform transform hover:scale-105 ${skill.color}`}
+              className={`group flex flex-col items-center bg-gray-900 rounded-lg shadow-md p-4 transition-transform transform hover:scale-105 hover:shadow-2xl`}
               ref={(el) => (skillsRef.current[index] = el)}
             >
-              <div className="text-4xl mb-4">{skill.icon}</div>
-              <p className="text-lg font-medium text-gray-300">{skill.name}</p>
+              <div className={`text-4xl mb-4 ${skill.color} ${skill.animation}`}>
+                {React.cloneElement(skill.icon, {
+                  className: `transition-all duration-300 ${skill.hoverColor} ${skill.animation}`,
+                })}
+              </div>
+              <p className={`text-lg font-medium text-gray-300 transition-colors duration-300 ${skill.hoverColor}`}>
+                {skill.name}
+              </p>
             </div>
           ))}
         </div>

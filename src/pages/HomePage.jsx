@@ -6,6 +6,7 @@ import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+import FutureGoals from "../components/FutureGoal";
 
 const HomePage = () => {
   return (
@@ -15,6 +16,7 @@ const HomePage = () => {
       <About/>
       <Skills/>
       <Projects/>
+      <FutureGoals/>
       <Contact/>
       <Footer/>
 
