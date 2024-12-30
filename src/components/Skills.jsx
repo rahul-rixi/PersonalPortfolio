@@ -2,6 +2,9 @@ import React, { useRef, useEffect } from "react";
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaCode } from "react-icons/fa";
 import { SiTailwindcss, SiExpress, SiMongodb, SiCplusplus } from "react-icons/si";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Skills = () => {
   const skillsData = [
@@ -23,10 +26,20 @@ const Skills = () => {
 
   useEffect(() => {
     skillsRef.current.forEach((skill, index) => {
-      gsap.fromTo(
-        skill,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.8, delay: index * 0.15, ease: "power3.out" }
+      gsap.fromTo(skill, 
+        { opacity: 0, y: 50 }, 
+        { 
+          opacity: 1, 
+          y: 0, 
+          duration: 0.8, 
+          delay: index * 0.15, 
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: skill,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
       );
     });
 
