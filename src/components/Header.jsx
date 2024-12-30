@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import Checkbox from "./Checkbox"; // Import the Checkbox (Hamburger) component
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
   const [scrolling, setScrolling] = useState(false); // Track if the page is scrolled
+  const navLinksRef = useRef([]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -48,6 +50,17 @@ const Navbar = () => {
     };
   }, []);
 
+  // GSAP animations for nav links
+  useEffect(() => {
+    gsap.from(navLinksRef.current, {
+      duration: 1,
+      y: -30,
+      opacity: 0,
+      stagger: 0.2,
+      ease: "power3.out"
+    });
+  }, []);
+
   // Define colors for each section
   const sectionColors = {
     home: "text-red-600",
@@ -89,11 +102,12 @@ const Navbar = () => {
           >
             Rahul
           </a>
-          <a href="#home"
-          
-          onClick={(e) => {
-            e.preventDefault();
-            handleScroll(e, "home");}}
+          <a
+            href="#home"
+            onClick={(e) => {
+              e.preventDefault();
+              handleScroll(e, "home");
+            }}
             className={`${
               scrolling ? "text-white" : "text-gray-300"
             } ml-1 transition-all duration-300`}
@@ -113,8 +127,8 @@ const Navbar = () => {
 
         {/* Desktop Navbar Links */}
         <div className="hidden md:flex space-x-8 font-medium">
-          {["Home", "About", "Skills", "Projects", "Future Goals", "Contact"].map((link) => (
-            <div key={link} className="relative group">
+          {["Home", "About", "Skills", "Projects", "Future Goals", "Contact"].map((link, index) => (
+            <div key={link} className="relative group" ref={el => navLinksRef.current[index] = el}>
               <a
                 href={`#${link.toLowerCase().replace(' ', '-')}`}
                 onClick={(e) => {
@@ -147,8 +161,8 @@ const Navbar = () => {
         }`}
       >
         <ul className="space-y-6 text-center text-2xl font-medium text-gray-300 pt-16">
-          {["Home", "About", "Skills", "Projects", "Future Goals", "Contact"].map((link) => (
-            <li key={link}>
+          {["Home", "About", "Skills", "Projects", "Future Goals", "Contact"].map((link, index) => (
+            <li key={link} ref={el => navLinksRef.current[index + 6] = el}>
               <a
                 href={`#${link.toLowerCase().replace(' ', '-')}`}
                 onClick={(e) => {
